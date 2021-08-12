@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.123
      *
      * @return \Illuminate\Http\Response
      */
