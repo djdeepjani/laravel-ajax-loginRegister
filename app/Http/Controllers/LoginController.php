@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Auth;
 
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /**
-     * Display a listing of the resource.123
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,21 +61,21 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         $user = User::create([
             'name' => $request->name,
-            'email_id' => $request->email,
+            'email_id' => $request->email_id,
             'password' => \Hash::make($request->password)
         ]);
 
         if(empty($user->id))
         {
-            echo json_encode(['error' => 'User not register successfuly.']);
+            echo json_encode(['error' => 'User not register successfully.']);
         }
         else
         {
-            echo json_encode(['success' => 'User register successfuly.']);
+            echo json_encode(['success' => 'User register successfully.']);
         }
     }
 

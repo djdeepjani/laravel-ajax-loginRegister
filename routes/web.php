@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,10 @@ Route::post('/register-submit',[LoginController::class,'store'])->name('register
 Route::post('/login/attempt',[LoginController::class,'attemptLogin'])->name('login.attemptlogin');
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
-    Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
+    Route::get('/home',[HomeController::class,'index'])->name('dashboard');
 });
 
 Route::post('/logout',[LoginController::class,'logout'])->name('logout');
+
+Route::get('auth/google',[GoogleController::class,'redirectToGoogle']);
+Route::get('auth/google/callback',[GoogleController::class,'handleGoogleCallback']);

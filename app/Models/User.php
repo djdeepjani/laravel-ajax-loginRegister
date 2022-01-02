@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email_id',
         'password',
+        'google_id'
     ];
 
     protected $primaryKey = 'uid';

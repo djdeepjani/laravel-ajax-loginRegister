@@ -14,6 +14,9 @@
 		<label>Password</label>
 		<input type="password" name="password" id="password">
 		<button type="submit" id="submit-btn">Submit</button>
+		<a href="{{ url('auth/google') }}" style="margin-top: 20px;" class="btn btn-lg btn-success btn-block">
+			<strong>Login With Google</strong>
+		  </a> 
 	</form>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
